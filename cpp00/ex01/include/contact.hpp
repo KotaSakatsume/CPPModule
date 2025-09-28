@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/25 18:20:16 by kosakats          #+#    #+#             */
-/*   Updated: 2025/09/27 11:15:42 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/09/28 21:50:04 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <limits>
 #include <iostream>
 #include <string>
+#include <cctype> 
 
 class Contact 
 {

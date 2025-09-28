@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 17:11:33 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/09/27 11:37:21 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/09/28 21:54:02 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ bool isNumber(const std::string& s)
         return (false);
     for (size_t i = 0; i < s.size(); i++) 
     {
-        if (!std::isdigit(s[i])) return false;
+        if (!std::isdigit(s[i])) 
+            return (false);
     }
     return (true);
 }
@@ -33,6 +34,19 @@ int toInt(const std::string& s)
     }
     return (num);
 }
+
+bool isEmptyOrSpaces(const std::string &str)
+{
+    if (str.empty())
+        return true;
+    for (size_t i = 0; i < str.size(); i++)
+    {
+        if (!isspace(str[i]))
+            return false;
+    }
+    return true;
+}
+
 
 int main() 
 {
@@ -51,22 +65,32 @@ int main()
 
             std::cout << "First name: ";
             std::getline(std::cin, str);
+            if (isEmptyOrSpaces(str))
+                continue;
             c.setFirstName(str);
 
             std::cout << "Last name: ";
             std::getline(std::cin, str);
+            if (isEmptyOrSpaces(str))
+                continue;
             c.setLastName(str);
 
             std::cout << "Nickname: ";
             std::getline(std::cin, str);
+            if (isEmptyOrSpaces(str))
+                continue;
             c.setNickname(str);
 
             std::cout << "Phone number: ";
             std::getline(std::cin, str);
+            if (isEmptyOrSpaces(str))
+                continue;
             c.setPhoneNumber(str);
             
             std::cout << "Darkest Secret: ";
             std::getline(std::cin, str);
+            if (isEmptyOrSpaces(str))
+                continue;
             c.setDarkestSecret(str);
 
             pb.addContact(c);
@@ -84,8 +108,8 @@ int main()
     
             if (!isNumber(input)) 
             {
-                std::cin.clear(); // エラー状態解除
-                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // 入力バッファを捨てる
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
                 std::cout << "Invalid input. Please enter a number." << std::endl;
                 continue;
             }

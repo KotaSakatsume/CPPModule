@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 14:52:54 by kosakats          #+#    #+#             */
-/*   Updated: 2025/09/27 11:16:30 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/09/28 21:56:03 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,15 @@
 
 PhoneBook::PhoneBook() : count(0), nextIndex(0) {}
 
-// 新しい連絡先を追加
 void PhoneBook::addContact(const Contact &c) 
 {
     contacts[nextIndex] = c;
-    nextIndex = (nextIndex + 1) % 8;  // 8件でループ
+    nextIndex = (nextIndex + 1) % 8;
     if (count < 8)
         count++;
 }
 
-// 10文字以内に整形する関数
+
 std::string format(const std::string &s) 
 {
     if (s.length() > 10)
@@ -35,15 +34,13 @@ std::string format(const std::string &s)
         return s;
 }
 
-// 一覧表示
 void PhoneBook::showContacts() const 
 {
     std::cout << std::setw(10) << "Index" << "|"
               << std::setw(10) << "First Name" << "|"
               << std::setw(10) << "Last Name" << "|"
               << std::setw(10) << "Nickname" << "|"
-              << std::setw(10) << "PhoneNumbe" << "|"
-              << std::setw(10) << "DarkestSec" << "|" << std::endl;
+              << std::setw(10) << "PhoneNumbe" << "|" << std::endl;
 
     for (int i = 0; i < count; i++) 
 	{
@@ -51,13 +48,11 @@ void PhoneBook::showContacts() const
                   << std::setw(10) << format(contacts[i].getFirstName()) << "|"
                   << std::setw(10) << format(contacts[i].getLastName()) << "|"
                   << std::setw(10) << format(contacts[i].getNickname()) << "|"
-                  << std::setw(10) << format(contacts[i].getPhoneNumber()) << "|"
-                  << std::setw(10) << format(contacts[i].getDarkestSecret()) << "|" << std::endl;
+                  << std::setw(10) << format(contacts[i].getPhoneNumber()) << "|" << std::endl;
     }
     
 }
 
-// 詳細表示
 void PhoneBook::showContact(int index) const 
 {
     if (index < 0 || index >= count) 
@@ -66,7 +61,6 @@ void PhoneBook::showContact(int index) const
         return;
     }
     std::string input;
-    std::cout << "Enter index to view (or just press Enter to go back): ";
     std::getline(std::cin, input);
 
     const Contact &c = contacts[index];
@@ -77,8 +71,7 @@ void PhoneBook::showContact(int index) const
     std::cout << "Darkest Secret: " << c.getDarkestSecret() << std::endl;
 }
 
-// 現在の件数を返す
 int PhoneBook::getCount() const 
 {
-    return count;
+    return (count);
 }

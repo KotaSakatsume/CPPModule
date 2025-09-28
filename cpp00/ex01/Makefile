@@ -6,12 +6,12 @@
 #    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/24 16:54:12 by kosakats          #+#    #+#              #
-#    Updated: 2025/09/25 18:26:15 by kosakats         ###   ########.fr        #
+#    Updated: 2025/09/27 14:06:16 by kosakats         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
-CXX = g++
+CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
 SRC = src/main.cpp src/contact.cpp src/phonebook.cpp
