@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 14:11:20 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/04 13:48:26 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/04 13:13:13 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/04 13:13:24 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#include "../include/Harl.hpp"
 
-#include <string>
-#include <iostream>
+#include "Harl.hpp"
 
-class Zombie
+int main(int argc, char **argv)
 {
-private:
-    std::string name;
+    if (argc != 2)
+    {
+        std::cout << "Usage: ./harlFilter <LEVEL>" << std::endl;
+        return 1;
+    }
 
-public:
-    Zombie();
-    Zombie(std::string name);  
-    ~Zombie();
+    std::string level = argv[1];
+    Harl harl;
+    harl.complainFromLevel(level);
 
-    void announce(void);
-};
-
-#endif
-
+    return 0;
+}

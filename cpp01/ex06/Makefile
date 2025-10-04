@@ -5,27 +5,23 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/01 12:58:32 by kosakats          #+#    #+#              #
-#    Updated: 2025/10/03 11:17:40 by kosakats         ###   ########.fr        #
+#    Created: 2025/10/04 12:59:53 by kosakats          #+#    #+#              #
+#    Updated: 2025/10/04 13:13:41 by kosakats         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = harlFilter
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
-SRCS = main.cpp
-
+SRCS = src/main.cpp src/Harl.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
-
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 14:11:20 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/04 13:48:26 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/03 11:25:04 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/03 11:58:11 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
-#include <string>
+#include "HumanA.hpp"
 #include <iostream>
 
-class Zombie
+HumanA::HumanA(const std::string &name, Weapon &weapon) : name(name), weapon(weapon) {}
+
+void HumanA::attack() const
 {
-private:
-    std::string name;
-
-public:
-    Zombie();
-    Zombie(std::string name);  
-    ~Zombie();
-
-    void announce(void);
-};
-
-#endif
-
+    std::cout << name << " attacks with their " << weapon.getType() << std::endl;
+}

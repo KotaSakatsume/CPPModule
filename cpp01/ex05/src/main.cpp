@@ -5,29 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/01 12:58:35 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/03 11:16:46 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/04 11:07:06 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/04 11:24:54 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Harl.hpp"
 
 int main()
 {
-    std::string str = "HI THIS IS BRAIN";
-    std::string* stringPTR = &str;
-    std::string& stringREF = str;
+    Harl harl;
 
-    std::cout << "Address of str:      " << &str << std::endl;
-    std::cout << "Address in stringPTR:" << stringPTR << std::endl;
-    std::cout << "Address in stringREF:" << &stringREF << std::endl;
-
-    std::cout << std::endl;
-
-    std::cout << "Value of str:        " << str << std::endl;
-    std::cout << "Value via stringPTR: " << *stringPTR << std::endl;
-    std::cout << "Value via stringREF: " << stringREF << std::endl;
+    harl.complain("DEBUG");
+    harl.complain("INFO");
+    harl.complain("WARNING");
+    harl.complain("ERROR");
+    harl.complain("NOTHING");
 
     return 0;
 }
