@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 13:12:05 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/04 13:13:06 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/05 18:36:27 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,30 @@ void Harl::error(void)
               << std::endl;
 }
 
-// 単体レベルでの呼び出し
-void Harl::complain(std::string level)
-{
-    if (level == "DEBUG")
-        debug();
-    else if (level == "INFO")
-        info();
-    else if (level == "WARNING")
-        warning();
-    else if (level == "ERROR")
-        error();
-    else
-        std::cout << "[ Probably complaining about insignificant problems ]\n"
-                  << "Although there are several ways to deal with Harl, one of the most effective is to SWITCH it off."
-                  << std::endl;
-}
+// void Harl::complain(std::string level)
+// {
+//     if (level == "DEBUG")
+//         debug();
+//     else if (level == "INFO")
+//         info();
+//     else if (level == "WARNING")
+//         warning();
+//     else if (level == "ERROR")
+//         error();
+//     else
+//         std::cout << "[ Probably complaining about insignificant problems ]\n"
+//                   << "Although there are several ways to deal with Harl, one of the most effective is to SWITCH it off."
+//                   << std::endl;
+// }
 
-// 指定レベル以上をまとめて表示
+
 void Harl::complainFromLevel(std::string level)
 {
+    std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     int lv = -1;
-    if (level == "DEBUG") lv = 0;
-    else if (level == "INFO") lv = 1;
-    else if (level == "WARNING") lv = 2;
-    else if (level == "ERROR") lv = 3;
+
+    for (int i = 0; i < 4; i++)
+        lv += (levels[i] == level) * (i + 1);
 
     switch (lv)
     {
@@ -86,3 +85,4 @@ void Harl::complainFromLevel(std::string level)
             break;
     }
 }
+

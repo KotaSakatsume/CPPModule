@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 13:11:51 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/04 13:12:00 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/05 12:02:48 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ private:
 
 public:
     void complain(std::string level);
-    void complainFromLevel(std::string level); // レベル以上をまとめて表示
+    void complainFromLevel(std::string level);
 };
 
 #endif

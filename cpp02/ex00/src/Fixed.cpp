@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/27 13:58:28 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/04 16:01:17 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/05 18:38:34 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/05 20:13:10 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "../include/Fixed.hpp"
 
-Zombie* newZombie(std::string name);
-void randomChump(std::string name);
-
-int main()
+Fixed::Fixed() : _value(0) 
 {
-    Zombie* z1 = newZombie("HeapZombie");
-    if(!z1)
-    {
-        std::cerr << "Failed to allocate memory." << std::endl;
-        return(1);
-    }
-    z1->announce();
-    delete z1;
+    std::cout << "Default constructor called" << std::endl;
+}
 
-    randomChump("StackZombie");
-
-    return 0;
+Fixed::Fixed(const Fixed &other) {
+    std::cout << "Copy constructor called" << std::endl;
+    _value = other._value;
 }

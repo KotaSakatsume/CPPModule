@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 11:25:12 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/03 11:58:52 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/05 11:47:08 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,9 @@ int main()
         club.setType("some other type of club");
         jim.attack();
     }
+    // {
+    //     HumanB alice("Alice");
+    //     alice.attack();
+    // }
     return 0;
 }

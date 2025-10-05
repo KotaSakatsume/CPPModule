@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 11:07:04 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/04 11:27:24 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/05 18:33:27 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,20 +40,20 @@ void Harl::error(void)
 
 void Harl::complain(std::string level)
 {
-    // メンバ関数ポインタの型定義
     typedef void (Harl::*HarlFunc)(void);
-
-    // レベルに対応する関数を配列に登録
     std::string levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
     HarlFunc funcs[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
+    int index = -1;
     for (int i = 0; i < 4; i++)
+        index += (levels[i] == level) * (i + 1);
+
+    switch (index)
     {
-        if (levels[i] == level)
-        {
-            (this->*funcs[i])();
-            return;
-        }
+        case 1: (this->*funcs[0])(); break;
+        case 2: (this->*funcs[1])(); break;
+        case 3: (this->*funcs[2])(); break;
+        case 4: (this->*funcs[3])(); break;
+        default: std::cout << "Unknown level: " << level << std::endl;
     }
-    std::cout << "Unknown level: " << level << std::endl;
 }

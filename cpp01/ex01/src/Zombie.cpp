@@ -6,19 +6,16 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 17:30:58 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/04 13:46:38 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/04 16:07:34 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-// デフォルトコンストラクタ
 Zombie::Zombie() {}
 
-// 名前付きコンストラクタ
 Zombie::Zombie(std::string name) : name(name) {}
 
-// デストラクタ（ゾンビが消えるときに表示）
 Zombie::~Zombie()
 {
     std::cout << name << " is destroyed" << std::endl;
