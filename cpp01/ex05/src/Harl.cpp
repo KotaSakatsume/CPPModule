@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 11:07:04 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/05 18:33:27 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/07 18:16:06 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,10 @@ void Harl::complain(std::string level)
 
     switch (index)
     {
-        case 1: (this->*funcs[0])(); break;
-        case 2: (this->*funcs[1])(); break;
-        case 3: (this->*funcs[2])(); break;
-        case 4: (this->*funcs[3])(); break;
+        case 0: (this->*funcs[0])(); break;
+        case 1: (this->*funcs[1])(); break;
+        case 2: (this->*funcs[2])(); break;
+        case 3: (this->*funcs[3])(); break;
         default: std::cout << "Unknown level: " << level << std::endl;
     }
 }
