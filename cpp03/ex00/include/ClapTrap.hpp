@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 18:38:37 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/07 16:47:21 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/12 19:29:31 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/12 19:47:01 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Fixed.hpp"
+#ifndef CLAPTRAP_HPP
+#define CLAPTRAP_HPP
 
-int main()
+#include <iostream>
+
+class ClapTrap
 {
-	Fixed a; 
-	Fixed b(a); 
-	Fixed c;
-	c = b;
+private:
+	std::string _name;
+	unsigned int _hitPoints;
+	unsigned int _energyPoints;
+	unsigned int _attackDamage;
+public:
+	ClapTrap(const std::string& name);
+	~ClapTrap();
+};
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
 
-	return(0);
+ClapTrap::~ClapTrap()
+{
 }
+
+
+#endif

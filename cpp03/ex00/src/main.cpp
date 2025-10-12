@@ -5,23 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 18:38:37 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/07 16:47:21 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/12 19:28:56 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/12 19:50:27 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Fixed.hpp"
+#include "ClapTrap.hpp"
 
 int main()
 {
-	Fixed a; 
-	Fixed b(a); 
-	Fixed c;
-	c = b;
-
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
-	return(0);
+	ClapTrap a;
+	
 }

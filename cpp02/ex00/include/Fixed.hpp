@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 18:38:40 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/05 20:12:52 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/07 16:49:41 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@ private:
 public:
 	Fixed();
 	Fixed(const Fixed &other);
+	~Fixed();
+	int getRawBits(void) const;
+	Fixed &operator=(const Fixed &other);
 };
 
 #endif

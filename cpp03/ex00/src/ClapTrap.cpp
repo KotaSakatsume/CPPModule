@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 18:38:37 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/07 16:47:21 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/12 19:29:16 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/12 19:55:43 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int main()
+ClapTrap::ClapTrap() : _name("Default"), _hitPoints(10), _energyPoints(10), _attackDamage(0) 
 {
-	Fixed a; 
-	Fixed b(a); 
-	Fixed c;
-	c = b;
+    std::cout << "Default constructor called" << std::endl;
+}
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-
-	return(0);
+ClapTrap::ClapTrap(const std::string& name)
+{
+	std::cout << "ClapTrap" << name << "has been generated!" << std::endl;
+	_name = name;
 }
