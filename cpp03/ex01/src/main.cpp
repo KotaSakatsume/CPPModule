@@ -6,24 +6,25 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:28:56 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/14 13:17:46 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/15 17:07:54 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "../include/ScavTrap.hpp"
 
 int main()
 {
-    ClapTrap robot("Kosakats");
+    ScavTrap s1("Serena");
 
-    robot.attack("TargetDummy");
-    robot.takeDamage(3);
-    robot.beRepaired(5);
-    for (int i = 0; i < 11; i++)
-        robot.attack("TargetDummy");
-    robot.takeDamage(20);
-    robot.attack("TargetDummy");
-    robot.beRepaired(5);
+    s1.attack("target dummy");
+    s1.takeDamage(30);
+    s1.beRepaired(20);
+    s1.guardGate();
+
+    std::cout << "----- Copy Test -----" << std::endl;
+    ScavTrap s2 = s1;
+    s2.attack("another dummy");
 
     return 0;
 }
+

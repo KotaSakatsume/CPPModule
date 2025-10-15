@@ -6,24 +6,25 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/12 19:28:56 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/14 13:17:46 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/15 21:08:32 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "../include/FragTrap.hpp"
 
 int main()
 {
-    ClapTrap robot("Kosakats");
+	std::cout << "=== Creating FragTrap ===" << std::endl;
+	FragTrap frag("Rocky");
 
-    robot.attack("TargetDummy");
-    robot.takeDamage(3);
-    robot.beRepaired(5);
-    for (int i = 0; i < 11; i++)
-        robot.attack("TargetDummy");
-    robot.takeDamage(20);
-    robot.attack("TargetDummy");
-    robot.beRepaired(5);
+	std::cout << "\n=== Testing actions ===" << std::endl;
+	frag.attack("enemy");
+	frag.takeDamage(30);
+	frag.beRepaired(20);
+	frag.highFivesGuys();
 
-    return 0;
+	std::cout << "\n=== Destruction ===" << std::endl;
+	return 0;
 }
+
+

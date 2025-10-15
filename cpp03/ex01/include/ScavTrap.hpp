@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 19:28:56 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/14 13:17:46 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/15 13:36:35 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/15 17:09:04 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int main()
+class ScavTrap : public ClapTrap
 {
-    ClapTrap robot("Kosakats");
+public:
+    ScavTrap(const std::string &name);
+    ScavTrap(const ScavTrap &other);
+    ScavTrap &operator=(const ScavTrap &other);
+    ~ScavTrap();
 
-    robot.attack("TargetDummy");
-    robot.takeDamage(3);
-    robot.beRepaired(5);
-    for (int i = 0; i < 11; i++)
-        robot.attack("TargetDummy");
-    robot.takeDamage(20);
-    robot.attack("TargetDummy");
-    robot.beRepaired(5);
+    void attack(const std::string &target);
+    void guardGate();
+};
 
-    return 0;
-}
+#endif
+

@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 17:01:04 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/12 18:13:06 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/14 12:26:31 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ Fixed::~Fixed() {
     std::cout << "Destructor called" << std::endl;
 }
 
-// int Fixed::getRawBits(void) const {
-//     return _rawBits;
-// }
+int Fixed::getRawBits(void) const {
+    return _rawBits;
+}
 
-// void Fixed::setRawBits(int const raw) {
-//     _rawBits = raw;
-// }
+void Fixed::setRawBits(int const raw) {
+    _rawBits = raw;
+}
 
 float Fixed::toFloat(void) const {
     return (float)_rawBits / (1 << _fractionalBits);

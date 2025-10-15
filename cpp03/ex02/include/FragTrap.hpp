@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/12 19:28:56 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/14 13:17:46 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/15 18:08:04 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/15 21:07:37 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
+
 #include "ClapTrap.hpp"
 
-int main()
+class FragTrap : public ClapTrap
 {
-    ClapTrap robot("Kosakats");
+public:
+	FragTrap(const std::string &name);
+	FragTrap(const FragTrap &other);
+	FragTrap &operator=(const FragTrap &other);
+	~FragTrap();
 
-    robot.attack("TargetDummy");
-    robot.takeDamage(3);
-    robot.beRepaired(5);
-    for (int i = 0; i < 11; i++)
-        robot.attack("TargetDummy");
-    robot.takeDamage(20);
-    robot.attack("TargetDummy");
-    robot.beRepaired(5);
+	void highFivesGuys(void);
+};
 
-    return 0;
-}
+#endif
