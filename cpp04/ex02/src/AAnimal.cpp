@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 15:37:20 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/19 13:11:44 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/17 15:37:46 by kotasakatsu       #+#    #+#             */
+/*   Updated: 2025/10/19 12:31:51 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "AAnimal.hpp"
 
-#include <string>
-#include <iostream>
+AAnimal::AAnimal():type("Animal")
+{
+    std::cout << "Animal constructor called" << std::endl;
+}
 
-class Animal{
-protected:
-    std::string type;
-public:
-    Animal();
-    const std::string& getType() const;
-    virtual void makeSound() const;
-    virtual ~Animal();
-};
+AAnimal::~AAnimal(){
+    std::cout << "Animal destructor called" << std::endl;
+}
 
-#endif
+const std::string& AAnimal::getType() const {
+    return type;
+}
+
+void AAnimal::makeSound() const {
+    std::cout << "Some generic animal sound" << std::endl;
+}

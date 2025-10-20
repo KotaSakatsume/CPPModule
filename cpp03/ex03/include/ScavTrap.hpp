@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 15:37:20 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/19 13:11:44 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/15 13:36:35 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/16 18:10:20 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-#include <string>
-#include <iostream>
+#include "ClapTrap.hpp"
 
-class Animal{
-protected:
-    std::string type;
+class ScavTrap : virtual public ClapTrap
+{
 public:
-    Animal();
-    const std::string& getType() const;
-    virtual void makeSound() const;
-    virtual ~Animal();
+	ScavTrap(const std::string& name);
+	ScavTrap(const ScavTrap& other);              
+	ScavTrap& operator=(const ScavTrap& other);    
+	virtual ~ScavTrap();
+
+    virtual void attack(const std::string& target);
+	void guardGate();
 };
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/17 15:37:20 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/19 13:11:44 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/17 18:39:17 by kotasakatsu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

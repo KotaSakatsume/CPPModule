@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 15:37:20 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/19 13:11:44 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/20 15:06:34 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/20 15:06:47 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "WrongCat.hpp"
 
-#include <string>
-#include <iostream>
+WrongCat::WrongCat()
+{
+    type = "WrongCat";
+    std::cout << "WrongCat constructor called" << std::endl;
+}
 
-class Animal{
-protected:
-    std::string type;
-public:
-    Animal();
-    const std::string& getType() const;
-    virtual void makeSound() const;
-    virtual ~Animal();
-};
+WrongCat::~WrongCat() {
+    std::cout << "WrongCat destructor called" << std::endl;
+}
 
-#endif
+void WrongCat::makeSound() const {
+    std::cout << "Meow🐱" << std::endl;
+}

@@ -6,7 +6,7 @@
 #    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/17 16:23:52 by kotasakatsu       #+#    #+#              #
-#    Updated: 2025/10/20 15:11:50 by kosakats         ###   ########.fr        #
+#    Updated: 2025/10/18 19:42:46 by kosakats         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = Animal
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
-SRCS = src/main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/WrongAnimal.cpp src/WrongCat.cpp
+SRCS = src/main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/Brain.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

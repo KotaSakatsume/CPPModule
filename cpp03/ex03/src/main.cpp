@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 15:37:20 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/19 13:11:44 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/12 19:28:56 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/15 21:08:32 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "../include/FragTrap.hpp"
 
-#include <string>
-#include <iostream>
+int main()
+{
+	std::cout << "=== Creating FragTrap ===" << std::endl;
+	FragTrap frag("Rocky");
 
-class Animal{
-protected:
-    std::string type;
-public:
-    Animal();
-    const std::string& getType() const;
-    virtual void makeSound() const;
-    virtual ~Animal();
-};
+	std::cout << "\n=== Testing actions ===" << std::endl;
+	frag.attack("enemy");
+	frag.takeDamage(30);
+	frag.beRepaired(20);
+	frag.highFivesGuys();
 
-#endif
+	std::cout << "\n=== Destruction ===" << std::endl;
+	return 0;
+}
+
+

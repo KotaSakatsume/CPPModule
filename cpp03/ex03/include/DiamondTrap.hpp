@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/17 15:37:20 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/19 13:11:44 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/16 15:23:38 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/16 16:37:12 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-#include <string>
-#include <iostream>
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class Animal{
-protected:
-    std::string type;
+class DiamondTrap : public FragTrap, public ScavTrap {
+private:
+	std::string _name;
 public:
-    Animal();
-    const std::string& getType() const;
-    virtual void makeSound() const;
-    virtual ~Animal();
+	DiamondTrap(const std::string& name);
+	~DiamondTrap();
+
+	void whoAmI();
+	void attack(const std::string& target);
 };
 
 #endif

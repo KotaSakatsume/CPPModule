@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/17 16:23:52 by kotasakatsu       #+#    #+#              #
-#    Updated: 2025/10/20 15:11:50 by kosakats         ###   ########.fr        #
+#    Created: 2025/10/12 19:28:31 by kosakats          #+#    #+#              #
+#    Updated: 2025/10/16 17:30:26 by kosakats         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animal
+NAME = claptrap
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -Wshadow -Wno-shadow
 
-SRCS = src/main.cpp src/Animal.cpp src/Dog.cpp src/Cat.cpp src/WrongAnimal.cpp src/WrongCat.cpp
+SRCS = src/main.cpp src/ClapTrap.cpp src/ScavTrap.cpp src/FragTrap.cpp src/DiamondTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
