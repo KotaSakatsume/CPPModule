@@ -6,36 +6,37 @@
 /*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:40:20 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/23 18:05:29 by kotasakatsu      ###   ########.fr       */
+/*   Updated: 2025/10/23 18:31:22 by kotasakatsu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 int main()
 { 
 	Bureaucrat a("Alice", 50);
 	Bureaucrat b("Bob", 120);
+	
 
-	Form taxForm("TaxForm", 75, 100);
+	AForm taxAForm("TaxAForm", 75, 100);
 
 	try {
-       taxForm.beSigned(a);
-       std::cout << taxForm << std::endl;
+       taxAForm.beSigned(a);
+       std::cout << taxAForm << std::endl;
 	} 
 	catch (std::exception &e) {
        std::cout << e.what() << std::endl;
 	}
 
 	try {
-    	taxForm.beSigned(b); 
-    	std::cout << taxForm << std::endl;
+    	taxAForm.beSigned(b); 
+    	std::cout << taxAForm << std::endl;
    	} 
 	catch (std::exception &e) {
    		std::cout << e.what() << std::endl;
    	}
 
-	std::cout << "Final Form state: " << taxForm << std::endl;
+	std::cout << "Final AForm state: " << taxAForm << std::endl;
 
 }
