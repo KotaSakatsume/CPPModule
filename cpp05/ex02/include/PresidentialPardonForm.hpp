@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
+/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 18:33:48 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/23 19:13:32 by kotasakatsu      ###   ########.fr       */
+/*   Updated: 2025/10/24 13:26:37 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class PresidentialPardonForm : public AForm
 {
 private:
-    std::string target;
+    std::string _target;
 public:
     PresidentialPardonForm(std::string const &target);
     virtual ~PresidentialPardonForm();

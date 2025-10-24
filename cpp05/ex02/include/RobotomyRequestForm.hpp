@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
+/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/23 18:33:17 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/23 19:13:28 by kotasakatsu      ###   ########.fr       */
+/*   Updated: 2025/10/24 16:57:45 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class RobotomyRequestForm : public AForm
 {
 private:
-    std::string target;
+    std::string _target;
 public:
     RobotomyRequestForm(std::string const &target);
     virtual ~RobotomyRequestForm();

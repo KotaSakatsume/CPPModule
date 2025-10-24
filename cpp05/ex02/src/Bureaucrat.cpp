@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
+/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:40:34 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/23 16:23:28 by kotasakatsu      ###   ########.fr       */
+/*   Updated: 2025/10/24 19:22:46 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat():_name("unknown"), _grade(150)
 {
@@ -68,6 +69,21 @@ void Bureaucrat::decrementGrade() {
 		throw GradeTooLowException();
 	return;
 }
+
+void Bureaucrat::signForm(AForm &form)
+{
+	if(_grade > form.getGradeToSign()) {
+		std::cout << "NG" << std::endl;
+		return;
+	}
+	std::cout << "OK" << std::endl;
+	return;
+}
+
+// void Bureaucrat::executeForm(AForm const &form) const 
+// {
+// 	(void)form;
+// }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw() {
 	return "Grade too high!";
