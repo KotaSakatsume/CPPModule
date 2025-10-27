@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/20 15:40:20 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/24 19:27:28 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/27 18:50:50 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,23 @@ int main() {
         PresidentialPardonForm pardon("Charlie");
 
         std::cout << "\n=== Signing Forms ===\n";
-        clerk.signForm(shrub);   // 署名失敗
-        boss.signForm(shrub);    // 署名成功
-        boss.signForm(robot);    // 署名成功
-        boss.signForm(pardon);   // 署名成功
+        clerk.signForm(shrub); 
+        boss.signForm(shrub);  
+        boss.signForm(robot);  
+        boss.signForm(pardon); 
 
         std::cout << "\n=== Executing Forms ===\n";
-        shrub.execute(boss);     // 成功
-        robot.execute(boss);     // 成功 or 失敗（50%）
-        pardon.execute(boss);    // 成功
+        shrub.execute(boss);    
+        robot.execute(boss);    
+        pardon.execute(boss);
 
-        // Bureaucrat 経由で実行
-        // std::cout << "\n=== Executing via Bureaucrat ===\n";
-        // boss.executeForm(shrub);
-        // boss.executeForm(robot);
-        // boss.executeForm(pardon);
-
-        std::cout << "\n=== Destructed ===\n";
-
+        std::cout << "\n=== Executing via Bureaucrat ===\n";
+        boss.executeForm(shrub);
+        boss.executeForm(robot);
+        boss.executeForm(pardon);
 
     } catch (std::exception &e) {
+        std::cout << "\n=== Exception handling ===\n";
         std::cerr << "Exception caught: " << e.what() << std::endl;
     }
 

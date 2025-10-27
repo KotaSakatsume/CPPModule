@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+         #
+#    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/20 15:40:04 by kosakats          #+#    #+#              #
-#    Updated: 2025/10/23 16:26:28 by kotasakatsu      ###   ########.fr        #
+#    Updated: 2025/10/27 19:52:53 by kosakats         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = Form
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
