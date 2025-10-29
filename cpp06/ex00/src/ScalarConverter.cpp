@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/23 18:32:48 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2025/10/28 17:07:32 by kosakats         ###   ########.fr       */
+/*   Created: 2025/10/28 19:50:11 by kosakats          #+#    #+#             */
+/*   Updated: 2025/10/29 11:48:34 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#include "ScalarConverter.hpp"
 
-#include "AForm.hpp"
-# include <fstream>
-
-class ShrubberyCreationForm : public AForm
+void ScalarConverter::convert(const std::string &literal)
 {
-private:
-    std::string _target;
-public:
-    ShrubberyCreationForm(std::string const &target);
-    virtual ~ShrubberyCreationForm();
-    void execute(Bureaucrat const &executor) const;
-};
+    std::cout << "Converting: " << literal << std::endl;
+}
 
-#endif

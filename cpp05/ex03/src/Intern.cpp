@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 19:14:34 by kosakats          #+#    #+#             */
-/*   Updated: 2025/10/27 19:51:13 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/10/28 17:59:16 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ AForm* Intern::makeForm(const std::string &formName, const std::string &target) 
 			return formCreators[i](target);
 		}
 	}
-
 	std::cout << "Form name \"" << formName << "\" does not exist" << std::endl;
 	return NULL;
 }
