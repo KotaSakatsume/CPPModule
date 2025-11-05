@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:19:02 by kosakats          #+#    #+#             */
-/*   Updated: 2025/11/04 19:40:25 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/11/05 18:33:03 by kotasakatsu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,9 @@ private:
 
     // --- 各型から変換処理 ---
     static void convertFromChar(char c);
-    static void convertFromInt(int n);
-    static void convertFromFloat(float f);
-    static void convertFromDouble(double d);
+    // static void convertFromInt(int n);
+    // static void convertFromFloat(float f);
+    // static void convertFromDouble(double d);
 
     // --- 変換結果の出力 ---
     static void printResult(char c, int i, float f, double d,
