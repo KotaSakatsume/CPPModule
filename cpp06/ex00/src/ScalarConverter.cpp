@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
+/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:50:11 by kosakats          #+#    #+#             */
-/*   Updated: 2025/11/05 18:35:43 by kotasakatsu      ###   ########.fr       */
+/*   Updated: 2025/11/05 19:26:18 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,64 @@ void ScalarConverter::convertFromChar(char c)
     printResult(c, i, f, d, impossibleFlags);
 }
 
+void ScalarConverter::convertFromInt(int n)
+{
+    char c = static_cast<char>(n);
+    float f = static_cast<float>(n);
+    double d = static_cast<double>(n);
+
+    bool impossibleFlags[4] = {false, false, false, false};
+
+    // charが表示不可能な場合
+    if (n < 0 || n > 127)
+        impossibleFlags[0] = true;
+    else if (!std::isprint(c))
+        impossibleFlags[0] = true;
+
+    printResult(c, n, f, d, impossibleFlags);
+}
+
+void ScalarConverter::convertFromFloat(float f)
+{
+    char c = static_cast<char>(f);
+    int i = static_cast<int>(f);
+    double d = static_cast<double>(f);
+
+    bool impossibleFlags[4] = {false, false, false, false};
+
+    // char変換チェック
+    if (std::isnan(f) || f < 0 || f > 127)
+        impossibleFlags[0] = true;
+    else if (!std::isprint(c))
+        impossibleFlags[0] = true;
+
+    // int変換チェック
+    if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min() || std::isnan(f))
+        impossibleFlags[1] = true;
+
+    printResult(c, i, f, d, impossibleFlags);
+}
+
+void ScalarConverter::convertFromDouble(double d)
+{
+    char c = static_cast<char>(d);
+    int i = static_cast<int>(d);
+    float f = static_cast<float>(d);
+
+    bool impossibleFlags[4] = {false, false, false, false};
+
+    // char変換チェック
+    if (std::isnan(d) || d < 0 || d > 127)
+        impossibleFlags[0] = true;
+    else if (!std::isprint(c))
+        impossibleFlags[0] = true;
+
+    // int変換チェック
+    if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min() || std::isnan(d))
+        impossibleFlags[1] = true;
+
+    printResult(c, i, f, d, impossibleFlags);
+}
 
 void ScalarConverter::convert(const std::string &literal)
 {
