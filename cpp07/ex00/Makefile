@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/28 19:11:49 by kosakats          #+#    #+#              #
-#    Updated: 2025/11/10 17:04:04 by kosakats         ###   ########.fr        #
+#    Created: 2025/11/10 19:36:14 by kosakats          #+#    #+#              #
+#    Updated: 2025/11/10 19:45:14 by kosakats         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = converts
+NAME = ex00
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
-SRCS = src/main.cpp src/ScalarConverter.cpp
+SRCS = src/main.cpp src/whatever.cpp 
 		
 
 OBJS = $(SRCS:.cpp=.o)

@@ -6,11 +6,16 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:50:11 by kosakats          #+#    #+#             */
-/*   Updated: 2025/11/05 19:26:18 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/11/10 18:35:36 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter::ScalarConverter() {}
+ScalarConverter::ScalarConverter(const ScalarConverter &) {}
+ScalarConverter& ScalarConverter::operator=(const ScalarConverter &) {return *this;}
+ScalarConverter::~ScalarConverter() {}
 
 void ScalarConverter::printResult(char c, int i, float f, double d, bool impossibleFlags[4])
 {
@@ -52,26 +57,21 @@ bool ScalarConverter::isPseudoLiteral(const std::string &literal)
 
 ScalarConverter::Type ScalarConverter::detectType(const std::string &literal)
 {
-    // ① 疑似リテラル判定 (nan, infなど)
     if (isPseudoLiteral(literal))
-        return TYPE_INVALID; // これは特殊処理側で扱う
+        return TYPE_INVALID;
 
-    // ② 1文字だけで、数字ではない場合 → char
     if (literal.length() == 1 && !isdigit(literal[0]))
         return TYPE_CHAR;
 
-    // ③ "f" で終わる → float っぽい
     if (literal[literal.size() - 1] == 'f' && literal.find('.') != std::string::npos)
         return TYPE_FLOAT;
 
-    // ④ '.' を含むが 'f' がない → double
     if (literal.find('.') != std::string::npos)
         return TYPE_DOUBLE;
 
-    // ⑤ 数字だけなら int
     bool isInt = true;
     size_t i = 0;
-    if (literal[0] == '+' || literal[0] == '-') // ±対応
+    if (literal[0] == '+' || literal[0] == '-')
         i++;
     for (; i < literal.length(); i++) {
         if (!isdigit(literal[i])) {
@@ -82,7 +82,6 @@ ScalarConverter::Type ScalarConverter::detectType(const std::string &literal)
     if (isInt)
         return TYPE_INT;
 
-    // ⑥ どれにも当てはまらない → invalid
     return TYPE_INVALID;
 }
 
@@ -94,9 +93,8 @@ void ScalarConverter::convertFromChar(char c)
 
     bool impossibleFlags[4] = {false, false, false, false};
 
-    // charが非表示（制御文字など）の場合は「非表示」と出す
     if (!std::isprint(c))
-        impossibleFlags[0] = true;  // char表示不可能
+        impossibleFlags[0] = true;
 
     printResult(c, i, f, d, impossibleFlags);
 }
@@ -109,7 +107,6 @@ void ScalarConverter::convertFromInt(int n)
 
     bool impossibleFlags[4] = {false, false, false, false};
 
-    // charが表示不可能な場合
     if (n < 0 || n > 127)
         impossibleFlags[0] = true;
     else if (!std::isprint(c))
@@ -126,13 +123,11 @@ void ScalarConverter::convertFromFloat(float f)
 
     bool impossibleFlags[4] = {false, false, false, false};
 
-    // char変換チェック
     if (std::isnan(f) || f < 0 || f > 127)
         impossibleFlags[0] = true;
     else if (!std::isprint(c))
         impossibleFlags[0] = true;
 
-    // int変換チェック
     if (f > std::numeric_limits<int>::max() || f < std::numeric_limits<int>::min() || std::isnan(f))
         impossibleFlags[1] = true;
 
@@ -147,13 +142,11 @@ void ScalarConverter::convertFromDouble(double d)
 
     bool impossibleFlags[4] = {false, false, false, false};
 
-    // char変換チェック
     if (std::isnan(d) || d < 0 || d > 127)
         impossibleFlags[0] = true;
     else if (!std::isprint(c))
         impossibleFlags[0] = true;
 
-    // int変換チェック
     if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min() || std::isnan(d))
         impossibleFlags[1] = true;
 
@@ -162,7 +155,6 @@ void ScalarConverter::convertFromDouble(double d)
 
 void ScalarConverter::convert(const std::string &literal)
 {
-    std::cout << "Converting: " << literal << std::endl;
     Type type = detectType(literal);
     
     if (isPseudoLiteral(literal)) {
@@ -177,9 +169,16 @@ void ScalarConverter::convert(const std::string &literal)
     case TYPE_CHAR:
         convertFromChar(literal[0]);
         break;
-    case TYPE_INT:
-        convertFromInt(std::atoi(literal.c_str()));
+    case TYPE_INT: {
+        double d = std::strtod(literal.c_str(), NULL);
+        if (d > std::numeric_limits<int>::max() || d < std::numeric_limits<int>::min()) {
+            bool impossibleFlags[4] = {true, true, false, false};
+            printResult(0, 0, static_cast<float>(d), d, impossibleFlags);
+        } else {
+            convertFromInt(static_cast<int>(d));
+        }
         break;
+    }   
     case TYPE_FLOAT:
         convertFromFloat(std::strtof(literal.c_str(), NULL));
         break;

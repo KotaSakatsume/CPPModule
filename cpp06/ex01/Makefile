@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/28 19:11:49 by kosakats          #+#    #+#              #
-#    Updated: 2025/11/10 17:04:04 by kosakats         ###   ########.fr        #
+#    Created: 2025/11/06 16:52:04 by kosakats          #+#    #+#              #
+#    Updated: 2025/11/06 16:52:44 by kosakats         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = converts
+NAME = Serializer
 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
 
-SRCS = src/main.cpp src/ScalarConverter.cpp
+SRCS = src/main.cpp src/Serializer.cpp
 		
 
 OBJS = $(SRCS:.cpp=.o)
