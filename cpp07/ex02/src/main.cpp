@@ -5,30 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 20:21:04 by kosakats          #+#    #+#             */
-/*   Updated: 2025/11/12 16:36:44 by kotasakatsu      ###   ########.fr       */
+/*   Created: 2025/11/12 16:38:14 by kotasakatsu       #+#    #+#             */
+/*   Updated: 2025/11/12 16:38:14 by kotasakatsu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
-
-void printInt(const int &n)
-{
-    std::cout << n << std::endl;
-}
-
-void printString(const std::string &s)
-{
-    std::cout << s << std::endl;
-}
-
-int main()
-{
-    int arr[] = {1, 2, 3, 4, 5};
-    iter(arr, 5, printInt);
-
-    std::string strs[] = {"apple", "banana", "cherry"};
-    iter(strs, 3, printString); 
-
-    return 0;
-}

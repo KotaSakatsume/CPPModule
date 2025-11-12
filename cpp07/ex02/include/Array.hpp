@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/10 20:21:04 by kosakats          #+#    #+#             */
-/*   Updated: 2025/11/12 16:36:44 by kotasakatsu      ###   ########.fr       */
+/*   Created: 2025/11/12 16:38:31 by kotasakatsu       #+#    #+#             */
+/*   Updated: 2025/11/12 18:42:22 by kotasakatsu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "iter.hpp"
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
-void printInt(const int &n)
+#include <string>
+#include <iostream>
+
+template <typename T>
+
+class Array
 {
-    std::cout << n << std::endl;
-}
+private:
+    T* _array;
+    unsigned int _size;
+public:
+    Array();
+    Array(const unsigned int n);
+    Array(const Array &other);
+    Array &operator=(const Array &other);
+    ~Array();
+    unsigned int size() const
+    
+};
 
-void printString(const std::string &s)
-{
-    std::cout << s << std::endl;
-}
-
-int main()
-{
-    int arr[] = {1, 2, 3, 4, 5};
-    iter(arr, 5, printInt);
-
-    std::string strs[] = {"apple", "banana", "cherry"};
-    iter(strs, 3, printString); 
-
-    return 0;
-}
+#endif
