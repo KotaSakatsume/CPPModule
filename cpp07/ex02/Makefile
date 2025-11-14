@@ -3,10 +3,37 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+         #
+#    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/12 16:39:09 by kotasakatsu       #+#    #+#              #
-#    Updated: 2025/11/12 16:39:09 by kotasakatsu      ###   ########.fr        #
+#    Updated: 2025/11/13 17:42:32 by kosakats         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+NAME = ex02
+
+CXX = c++
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
+
+SRCS = src/main.cpp
+		
+
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re

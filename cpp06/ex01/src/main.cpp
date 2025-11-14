@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 13:28:37 by kosakats          #+#    #+#             */
-/*   Updated: 2025/11/06 16:57:52 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/11/13 19:10:58 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int main()
 	data.name = "Alice";
 
 	__intptr_t raw = Serializer::serialize(&data);
+	// raw = raw + 1;
 	Data* ptr = Serializer::deserialize(raw);
 
 	if (ptr == &data)

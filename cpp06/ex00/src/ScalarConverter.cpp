@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/28 19:50:11 by kosakats          #+#    #+#             */
-/*   Updated: 2025/11/10 18:35:36 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/11/13 18:13:22 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ void ScalarConverter::printResult(char c, int i, float f, double d, bool impossi
 {
     std::cout << std::fixed << std::setprecision(1);
 
-    if (impossibleFlags[0])
-        std::cout << "char: Non displayable" << std::endl;
-        
-    else if (impossibleFlags[1])
+    if (impossibleFlags[1])
         std::cout << "char: impossible" << std::endl;
+    else if (impossibleFlags[0])
+        std::cout << "char: Non displayable" << std::endl;
     else
         std::cout << "char: '" << c << "'" << std::endl;
-
     if (impossibleFlags[1])
         std::cout << "int: impossible" << std::endl;
     else
