@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 14:43:09 by kosakats          #+#    #+#             */
-/*   Updated: 2025/12/22 21:03:32 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/12/23 14:30:00 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,12 @@ int Span::shortestSpan()
 	return min;
 }
 
-// int Span::longestSpan()
-// {
+int Span::longestSpan()
+{
+	if (_numbers.size() < 2)
+		throw std::runtime_error("Span cannot be found");
 	
-// }
+	std::vector<int> copyNumbers = _numbers;
+	std::sort(copyNumbers.begin(), copyNumbers.end());
+	return copyNumbers.back() - copyNumbers.front();
+}

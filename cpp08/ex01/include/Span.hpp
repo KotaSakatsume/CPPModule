@@ -6,7 +6,7 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 14:43:13 by kosakats          #+#    #+#             */
-/*   Updated: 2025/12/22 17:33:34 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/12/23 15:10:11 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,16 @@ class Span
 		int longestSpan();
 		void print();
 
+		template<typename iterator>
+		void addNumber(iterator begin, iterator end)
+		{
+			std::vector<int> copyNumbers = _numbers;
+			if(_numbers.size() + std::distance(begin, end) > _maxSize)
+        		throw std::runtime_error("Span is full");
+			copyNumbers.insert(copyNumbers.end(), begin, end);
+			_numbers = copyNumbers;
+		}
+		
 	private:
 		std::vector<int> _numbers;
 		unsigned int _maxSize;
