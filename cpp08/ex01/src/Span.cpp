@@ -6,14 +6,15 @@
 /*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 14:43:09 by kosakats          #+#    #+#             */
-/*   Updated: 2025/12/23 14:30:00 by kosakats         ###   ########.fr       */
+/*   Updated: 2025/12/23 16:49:17 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <iostream>
-
-Span::Span() {}
+// A default-constructed Span has an uninitialized maxSize, which is a bug.
+// It should be initialized, for example, to 0.
+Span::Span() : _maxSize(0) {}
 
 Span::Span(unsigned int N) : _maxSize(N)
 {
@@ -60,7 +61,7 @@ int Span::longestSpan()
 	if (_numbers.size() < 2)
 		throw std::runtime_error("Span cannot be found");
 	
-	std::vector<int> copyNumbers = _numbers;
-	std::sort(copyNumbers.begin(), copyNumbers.end());
-	return copyNumbers.back() - copyNumbers.front();
+	// Using min_element and max_element is more efficient (O(N))
+	// than copying and sorting (O(N log N)).
+	return *std::max_element(_numbers.begin(), _numbers.end()) - *std::min_element(_numbers.begin(), _numbers.end());
 }
