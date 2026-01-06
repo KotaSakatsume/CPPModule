@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 19:00:47 by kosakats          #+#    #+#             */
-/*   Updated: 2026/01/05 18:24:31 by kosakats         ###   ########.fr       */
+/*   Updated: 2026/01/06 18:49:31 by kotasakatsu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ int main(int argc, char **argv)
 		std::cerr << "Error: could not open file." << std::endl;
 		return(1);
 	}
-		
+
+	std::string line;
+	std::getline(file, line);
+	while (std::getline(file, line))
+	{
+		data.processLine(line);
+	}
 	return (0);
 }

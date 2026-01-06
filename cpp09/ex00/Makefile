@@ -3,17 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+         #
+#    By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/24 19:00:57 by kosakats          #+#    #+#              #
-#    Updated: 2026/01/05 14:48:52 by kosakats         ###   ########.fr        #
+#    Updated: 2026/01/06 18:59:55 by kotasakatsu      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = btc
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -Iinclude -pedantic
 
 SRCS = src/main.cpp src/BitcoinExchange.cpp
 		
