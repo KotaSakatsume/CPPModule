@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
+/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 19:00:27 by kosakats          #+#    #+#             */
-/*   Updated: 2026/01/05 18:39:20 by kosakats         ###   ########.fr       */
+/*   Updated: 2026/01/07 14:32:17 by kotasakatsu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ private:
 
 public:
 	BitcoinExchange();
+	~BitcoinExchange();
 	void processLine(const std::string& line);
 };
 

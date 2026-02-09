@@ -6,7 +6,7 @@
 /*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/24 19:00:36 by kosakats          #+#    #+#             */
-/*   Updated: 2026/01/06 19:00:11 by kotasakatsu      ###   ########.fr       */
+/*   Updated: 2026/01/07 14:43:04 by kotasakatsu      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ BitcoinExchange::BitcoinExchange()
 {
 	loadDatabase();
 }
+
+BitcoinExchange::~BitcoinExchange() {}
 
 void BitcoinExchange::loadDatabase()
 {
