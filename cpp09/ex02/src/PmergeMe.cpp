@@ -3,7 +3,6 @@
 // ==========================================
 // Global Counter & Helper Struct
 // ==========================================
-// C++98対応: long long ではなく long を使用
 long g_compCount = 0; 
 
 // std::lower_bound で比較回数をカウントするための構造体
@@ -95,7 +94,6 @@ std::vector<int> PmergeMe::mergeInsertionSortVector(std::vector<int> &arr) {
         arr.pop_back();
     }
 
-    // ★カウント追加: ペア作成時の比較
     for (size_t i = 0; i < arr.size(); i += 2) {
         g_compCount++; 
         if (arr[i] > arr[i + 1]) {
@@ -115,6 +113,7 @@ std::vector<int> PmergeMe::mergeInsertionSortVector(std::vector<int> &arr) {
     std::vector<int> mainChain = sortedWinners;
     std::vector<int> pending;
 
+    //再度ペア探し
     for (size_t i = 0; i < mainChain.size(); ++i) {
         int winner = mainChain[i];
         for (size_t j = 0; j < pairs.size(); ++j) {
@@ -126,10 +125,8 @@ std::vector<int> PmergeMe::mergeInsertionSortVector(std::vector<int> &arr) {
         }
     }
 
-    // 最初の敗者を挿入
     mainChain.insert(mainChain.begin(), pending[0]);
 
-    // ★修正: Stragglerをpendingに追加して、Jacobson順序に組み込む
     if (hasStraggler) {
         pending.push_back(straggler);
     }
@@ -139,12 +136,12 @@ std::vector<int> PmergeMe::mergeInsertionSortVector(std::vector<int> &arr) {
 
     while (insertedCount < pending.size()) {
         size_t nextIndex = getJacobsthal(jacobsthalIndex);
-        if (nextIndex > pending.size()) nextIndex = pending.size();
+        if (nextIndex > pending.size()) 
+            nextIndex = pending.size();
 
         for (size_t i = nextIndex; i > insertedCount; --i) {
             int valToInsert = pending[i - 1];
             
-            // ★修正: ペアが存在する場合はその位置まで、存在しない(Straggler)場合は末尾まで探索
             std::vector<int>::iterator limitIt;
             if (i - 1 < sortedWinners.size()) {
                 int pairVal = sortedWinners[i - 1];
@@ -153,7 +150,6 @@ std::vector<int> PmergeMe::mergeInsertionSortVector(std::vector<int> &arr) {
                 limitIt = mainChain.end();
             }
             
-            // ★カウント追加: lower_bound に CompCounter を渡す
             std::vector<int>::iterator pos = std::lower_bound(
                 mainChain.begin(), 
                 limitIt, 
@@ -231,7 +227,8 @@ std::deque<int> PmergeMe::mergeInsertionSortDeque(std::deque<int> &arr) {
 
     while (insertedCount < pending.size()) {
         size_t nextIndex = getJacobsthal(jacobsthalIndex);
-        if (nextIndex > pending.size()) nextIndex = pending.size();
+        if (nextIndex > pending.size()) 
+            nextIndex = pending.size();
 
         for (size_t i = nextIndex; i > insertedCount; --i) {
             int valToInsert = pending[i - 1];
@@ -268,15 +265,13 @@ void PmergeMe::run(int argc, char **argv) {
     std::cout << "Before: ";
     printContainer(_vec, "");
 
-    // --- Measure Vector ---
-    g_compCount = 0; // リセット
+    g_compCount = 0; //カウントリセット
     std::clock_t startVec = std::clock();
     sortVector(_vec);
     std::clock_t endVec = std::clock();
     double timeVec = static_cast<double>(endVec - startVec) / CLOCKS_PER_SEC * 1000000; 
-    long vecComparisons = g_compCount; // 保存
+    long vecComparisons = g_compCount;
 
-    // --- Measure Deque ---
     std::clock_t startDeq = std::clock();
     sortDeque(_deq);
     std::clock_t endDeq = std::clock();
@@ -291,6 +286,5 @@ void PmergeMe::run(int argc, char **argv) {
     std::cout << "Time to process a range of " << _deq.size() 
               << " elements with std::deque  : " << timeDeq << " us" << std::endl;
     
-    // ★ここで比較回数を表示
     std::cout << "Number of comparisons (Vector) : " << vecComparisons << std::endl;
 }
