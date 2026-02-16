@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
+/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:38:01 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2026/02/13 15:41:38 by kotasakatsu      ###   ########.fr       */
+/*   Updated: 2026/02/16 15:32:10 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 #include <sstream>
 
 RPN::RPN() {}
+RPN::RPN(const RPN& other) {
+    *this = other; 
+}
+RPN& RPN::operator=(const RPN& other) {
+    if (this != &other) {
+        this->_stack = other._stack;
+    }
+    return *this;
+}
 
 RPN::~RPN() {}
 
@@ -32,16 +41,28 @@ void RPN::applyOperator(const std::string& op)
     _stack.pop();
     int a = _stack.top();
     _stack.pop();
-    int result;
+    long result = 0;
     if (op == "+")
+    {
+        if ((long)a + b > INT_MAX || (long)a + b < INT_MIN)
+            throw std::overflow_error("Integer overflow");
         result = a + b;
+    }
     else if (op == "-")
         result = a - b;
     else if (op == "*")
+    {
+        if (a != 0 && (long)b > INT_MAX / a)
+            throw std::overflow_error("Integer overflow");
         result = a * b;
+    }
     else if (op == "/")
+    {
+        if (b == 0)
+            throw std::runtime_error("Division by zero");
         result = a / b;
-    _stack.push(result);
+    }
+    _stack.push(static_cast<int>(result));
 }
 
 void RPN::evaluate(const std::string& expression)

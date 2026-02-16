@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kotasakatsume <kotasakatsume@student.42    +#+  +:+       +#+        */
+/*   By: kosakats <kosakats@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/06 19:37:57 by kotasakatsu       #+#    #+#             */
-/*   Updated: 2026/01/07 14:43:47 by kotasakatsu      ###   ########.fr       */
+/*   Updated: 2026/02/16 15:31:54 by kosakats         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <iostream>
 #include <string>
 #include <stack>
+#include <climits>
 
 class RPN
 {
@@ -28,8 +29,8 @@ private:
 
 public:
     RPN();
-    // RPN(const RPN& other);
-    // RPN& operator=(const RPN& other);
+    RPN(const RPN& other);
+    RPN& operator=(const RPN& other);
     ~RPN();
 
     void evaluate(const std::string& expression);
